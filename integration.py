@@ -12,10 +12,15 @@ def integration(func, a, b):
         raise Exception("a must be smaller than b")
     n = 1000.
     step = (float(b) - float(a) + 1.) / n
+    print(step)
     i = a
     total = 0.
     while i <= b and (i + step) <= b:
-        total += func(i) * step
+        print("i=" + i)
+        temp = func(i)
+        #print(temp * step)
+        total += temp * step
+        #total += func(i) * step
         i += step
     return total
    
@@ -24,4 +29,5 @@ def squar(x):
     
 if __name__ == "__main__":
     result = integration(squar, 2, 4)
+    #result = squar(5)
     print(result)
